@@ -1,0 +1,64 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+ 
+  <view class="section">
+    <view class="section__title">问题：</view>
+    <input name="content" value="{{content}}" placeholder="请填写问题" />
+  </view>
+  
+  <!-- 下拉框 -->
+  <view class='select_box'>
+      <view class='select' catchtap='selectTap'>
+		  <view class="section__title">问题类型：</view>
+          <text class='select_text'>{{selectData[index]}}</text>
+          <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/pages/images/rule-hide.png'  background-size="contain"></image> 
+      </view>
+      <view class='option_box' style='height:{{selectShow?(selectData.length>5?325:selectData.length*50):0}}rpx;'>
+          <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' data-item='{{item}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+  </view>
+  
+  <view class="section section_gap">
+    <view class="section__title">答案：</view>
+    <radio-group name="answer">
+      <label class="section__radio">
+        <radio value="A" />A</label>
+      <label class="section__radio">
+        <radio value="B" />B</label>
+	  <label class="section__radio">
+		<radio value="C" />C</label>
+	  <label class="section__radio">
+		<radio value="D" />D</label>
+    </radio-group>
+  </view>
+  
+  <view class="section">
+	<input hidden="true" name="selectKey1" value="A" />
+    <view class="section__title">A：</view>
+    <input name="selectValue1" value="{{selectValue1}}" placeholder="选项A" />
+  </view>
+  
+  <view class="section">
+  	<input hidden="true" name="selectKey2"  value="B"/>
+    <view class="section__title">B：</view>
+    <input name="selectValue2" value="{{selectValue2}}" placeholder="选项B" />
+  </view>
+  
+  <view class="section">
+  	<input hidden="true" name="selectKey3" value="C" />
+    <view class="section__title">C：</view>
+    <input name="selectValue3" value="{{selectValue3}}" placeholder="选项C" />
+  </view>
+  
+  <view class="section">
+  	<input hidden="true" name="selectKey4" value="D" />
+    <view class="section__title">D：</view>
+    <input name="selectValue4" value="{{selectValue4}}" placeholder="选项D" />
+  </view>
+  
+  <view class="btn-area">
+    <button formType="submit" type="primary">提交</button>
+    <button formType="reset" type="warn">重置</button>
+  </view>
+  
+</form>
+

@@ -1,0 +1,21 @@
+/**poetry.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttontto {
+  margin-top: 150px;
+}
+
+.addmotto {
+  margin-top: 10px;
+}
+
+ .select-block{
+  display: flex;
+  position: relative;
+  margin-top:25rpx;
+} 
+

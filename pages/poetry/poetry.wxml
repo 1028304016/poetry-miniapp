@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+	  
+	  <!-- 得分 -->
+	  <view class="title" >
+	      <text class="log-item">本次答题得分：{{answerTotal}}分</text>
+	  </view>
+	  <!-- 剩余错题数-->
+	  <view class="title" >
+	      <text class="log-item">剩余错题数：{{errorNum}}次</text>
+	  </view>
+	  
+	  <!-- 计时 -->
+	  <view class="title" >
+	      <text class="log-item">倒计时：{{timingNum}}秒</text>
+	  </view>
+	  
+	  <block class="title" >—————————————————</block>
+	  
+	  <!-- 题目 -->
+	  <view class="title" >
+	      <text class="log-item">{{contentTitle}}</text>
+	  </view>
+	  <block class="title" >—————————————————</block>
+  </view>
+	  <!-- 选项 -->
+	  <view class="select-block" wx:for="{{selects}}" wx:for-item="selectone" wx:key="selectone" 
+						bindtap="selectAnswerClick" data-answer="{{contentAnswer}}"
+						 data-selectkey="{{selectone.selectKey}}">
+	      <text class="select-key">{{selectone.selectKey}}. </text>
+		  <text class="select-value">{{selectone.selectValue}}</text>
+	  </view>
+
+  <view class="buttontto">
+  	 <button class="next-btn" type="primary" wx:if="{{startFlag}}"  bindtap="startProblowClick"  >开始答题</button> 
+  </view>
+  <view class="buttontto">
+  	 <button class="next-btn" type="primary" wx:if="{{!startFlag}}" bindtap="restartProblowClick">重新答题</button> 
+  </view>
+  
+  <view class="addmotto">
+	 <button class="next-btn" type="primary" bindtap="addProblowClick">新增问题</button> 
+  </view>
+</view>
