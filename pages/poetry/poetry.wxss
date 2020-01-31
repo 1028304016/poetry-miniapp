@@ -6,7 +6,7 @@
 }
 
 .buttontto {
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .addmotto {
@@ -16,6 +16,10 @@
  .select-block{
   display: flex;
   position: relative;
-  margin-top:25rpx;
+  margin-top:5rpx;
 } 
+
+.select-value{
+   padding:10px;
+}
 

@@ -25,21 +25,25 @@
 	  <block class="title" >—————————————————</block>
   </view>
 	  <!-- 选项 -->
-	  <view class="select-block" wx:for="{{selects}}" wx:for-item="selectone" wx:key="selectone" 
+	  <view class="select-block" wx:for="{{selects}}" wx:for-item="selectone" wx:key="key" 
 						bindtap="selectAnswerClick" data-answer="{{contentAnswer}}"
-						 data-selectkey="{{selectone.selectKey}}">
-	      <text class="select-key">{{selectone.selectKey}}. </text>
-		  <text class="select-value">{{selectone.selectValue}}</text>
+						 data-selectkey="{{selectone.selectKey}}"
+						 wx:for-index="index"
+						 data-index="{{index}}"
+						 style='{{colorkey==index?colorFlag:""}} border-radius:5px;padding:5px'
+						 >
+			<view  class="select-value" 
+			      style='{{contentAnswer==selectone.selectKey?colortrue:""}} border-radius:5px'>
+				<text class="" >{{selectone.selectKey}}. </text>
+				<text class="" >{{selectone.selectValue}}</text>
+			</view>			 
 	  </view>
 
   <view class="buttontto">
   	 <button class="next-btn" type="primary" wx:if="{{startFlag}}"  bindtap="startProblowClick"  >开始答题</button> 
   </view>
-  <view class="buttontto">
+  <!-- <view class="buttontto">
   	 <button class="next-btn" type="primary" wx:if="{{!startFlag}}" bindtap="restartProblowClick">重新答题</button> 
-  </view>
+  </view> -->
   
-  <view class="addmotto">
-	 <button class="next-btn" type="primary" bindtap="addProblowClick">新增问题</button> 
-  </view>
 </view>

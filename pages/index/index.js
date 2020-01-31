@@ -29,12 +29,19 @@ Page({
   
   //选择后开始答题
   problowTypeClick:function(e){
-	  
 	  let type =e.currentTarget.dataset.type;
-	  
   	  wx.navigateTo({
   	    url: '/pages/poetry/poetry?type='+type
   	  })
+  },
+  //新增问题事件
+  addProblowClick() {
+  	/* wx.navigateTo({
+  	  url: '/pages/addpage/add'
+  	}) */
+  	wx.redirectTo({
+  		url: '/pages/addpage/add'
+  	})
   },
 
 })

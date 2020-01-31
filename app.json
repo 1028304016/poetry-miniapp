@@ -3,6 +3,7 @@
 	"pages/welcome/welcome",
 	"pages/index/index",
 	"pages/poetry/poetry",
+	"pages/share/share",
 	"pages/addpage/add",
     "pages/logs/logs"
   ],

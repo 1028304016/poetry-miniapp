@@ -75,3 +75,7 @@
 .next-btn{
      margin: 25rpx 0 25rpx 0;
 } 
+
+.title_top{
+	 margin-top: -100rpx;
+}

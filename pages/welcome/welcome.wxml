@@ -1,34 +1,14 @@
-<!--index.wxml-->
+
 <view class="container">
   <view class="userinfo">
-	  
-	  <view class="title" >
-	      <text class="log-item">欢</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">迎</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">参</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">加</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">知</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">识</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">问</text>
-	  </view>
-	  <view class="title" >
-	      <text class="log-item">答</text>
-	  </view>
-  </view>
-  
-  <view class="usermotto">
-	 <button class="next-btn" type="primary" bindtap="nextPage">参加问答</button> 
+  　　<view class='content'  wx:if="{{!hasUserInfo}}" >
+  　　　　<view>申请获取以下权限:</view>
+  　　　　<view>获得你的公开信息(昵称，头像等)</view>
+  　　</view>
+  　　<button class='bottom' wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" type='primary'> 授权登录</button>
+	  <block wx:else>
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+		<text  class="userinfo-nickname">{{userInfo.nickName}}</text>
+	  </block>
   </view>
 </view>

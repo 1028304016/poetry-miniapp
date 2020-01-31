@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
+	
   <view class="userinfo">
-	  
-	  <view class="title" >
+	  <view class="title_top" >
 	      <text class="log-item">请选择答题类型：</text>
 	  </view>
 	  
@@ -11,7 +11,10 @@
 	   <button class="next-btn" type="primary" bindtap="problowTypeClick" data-type="军事" >军事</button>
 	   <button class="next-btn" type="primary" bindtap="problowTypeClick" data-type="生活百科" >生活百科</button>
 	   <button class="next-btn" type="primary" bindtap="problowTypeClick" data-type="诗词成语谚语" >诗词成语谚语</button>
-
+	  
+	  <view class="addmotto">
+		 <button class="next-btn" type="warn" bindtap="addProblowClick">新增问题</button> 
+	  </view>
   </view>
   
 	<view class="title">
