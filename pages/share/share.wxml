@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+	
+  <view class="userinfo">
+	  <view class="title_top" >
+	      <text class="log-item">本次答题得分：{{answerTotal}} 分</text>
+	  </view>
+	  <view class="title_top" >
+	      <text class="log-item">累计答错三道题,请选择重新答题或者分享</text>
+	  </view>
+	 
+	   <button class="next-btn" type="primary" open-type="share" >分享</button>
+	   <button class="next-btn" type="primary" bindtap="restartProblowClick">开始答题</button>
+	 
+	  <!-- 二维码 -->
+	  <image class="code-img" src='/pages/images/code.jpg' ></image>
+  </view>
+  
+</view>

@@ -2,57 +2,61 @@
  
   <view class="section">
     <view class="section__title">问题：</view>
-    <input name="content" value="{{content}}" placeholder="请填写问题" />
+    <input name="content" value="{{content}}" id="content" data-name="{{content}}" focus="{{focus}}" placeholder="请填写问题" />
   </view>
   
   <!-- 下拉框 -->
-  <view class='select_box'>
-      <view class='select' catchtap='selectTap'>
-		  <view class="section__title">问题类型：</view>
-          <text class='select_text'>{{selectData[index]}}</text>
-          <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/pages/images/rule-hide.png'  background-size="contain"></image> 
+  <view class='list-msg'>
+      <view class='list-msg2' bindtap='bindShowMsg'>
+          <text>{{tihuoWay}}</text>
+          <image style='height:20rpx;width:20rpx;' src='/pages/images/rule-hide.png'></image>
       </view>
-      <view class='option_box' style='height:{{selectShow?(selectData.length>5?325:selectData.length*50):0}}rpx;'>
-          <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' data-item='{{item}}' catchtap='optionTap'>{{item}}</text>
+  <!-- 下拉需要显示的列表 -->
+      <view class="select_box" wx:if="{{select}}">
+          <view class="select_one" bindtap="mySelect" data-name="历史">历史</view>
+          <view class="select_one" bindtap="mySelect" data-name="地理">地理</view>
+          <view class="select_one" bindtap="mySelect" data-name="军事">军事</view>
+		  <view class="select_one" bindtap="mySelect" data-name="生活百科">生活百科</view>
+		  <view class="select_one" bindtap="mySelect" data-name="诗词成语谚语">诗词成语谚语</view>
       </view>
   </view>
   
   <view class="section section_gap">
-    <view class="section__title">答案：</view>
+    <view class="section__title"> 答案：</view>
     <radio-group name="answer">
       <label class="section__radio">
-        <radio value="A" />A</label>
+        <radio value="A" bindtap="selectRadio"/>A</label>
       <label class="section__radio">
-        <radio value="B" />B</label>
+        <radio value="B" bindtap="selectRadio"/>B</label>
 	  <label class="section__radio">
-		<radio value="C" />C</label>
+		<radio value="C" bindtap="selectRadio"/>C</label>
 	  <label class="section__radio">
-		<radio value="D" />D</label>
+		<radio value="D" bindtap="selectRadio"/>D</label>
     </radio-group>
   </view>
   
   <view class="section">
 	<input hidden="true" name="selectKey1" value="A" />
-    <view class="section__title">A：</view>
-    <input name="selectValue1" value="{{selectValue1}}" placeholder="选项A" />
+    <view class="section__title">选项A：</view>
+    <input name="selectValue1" value="{{selectValue1}}" focus="{{focusRadio}}" placeholder=" " />
   </view>
   
   <view class="section">
   	<input hidden="true" name="selectKey2"  value="B"/>
-    <view class="section__title">B：</view>
-    <input name="selectValue2" value="{{selectValue2}}" placeholder="选项B" />
+    <view class="section__title">选项B：</view>
+    <input name="selectValue2" value="{{selectValue2}}" placeholder=" " />
   </view>
   
   <view class="section">
   	<input hidden="true" name="selectKey3" value="C" />
-    <view class="section__title">C：</view>
-    <input name="selectValue3" value="{{selectValue3}}" placeholder="选项C" />
+    <view class="section__title">选项C：</view>
+    <input name="selectValue3" value="{{selectValue3}}" placeholder=" " />
   </view>
   
   <view class="section">
   	<input hidden="true" name="selectKey4" value="D" />
-    <view class="section__title">D：</view>
-    <input name="selectValue4" value="{{selectValue4}}" placeholder="选项D" />
+    <view class="section__title">选项D：</view>
+    <input name="selectValue4" value="{{selectValue4}}" placeholder=" " />
   </view>
   
   <view class="btn-area">

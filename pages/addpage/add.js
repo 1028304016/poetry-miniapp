@@ -15,31 +15,44 @@ Page({
 	selectValue3: "",
 	selectKey4: "",
 	selectValue4: "",
-	selectShow: false,//控制下拉列表的显示隐藏，false隐藏、true显示
-	selectData: ['历史','地理','军事','生活百科','诗词成语谚语'],//下拉列表的数据
-	index: 0,//选择的下拉列表下标
+	select: false,//控制下拉列表的显示隐藏，false隐藏、true显示
+	tihuoWay: '请选择问题类型:',
 	selectDataValue: '',
+	focusRadio:false,
   },
   onLoad: function () {
-  		
+	/* var that=this;
+	setTimeout(function(){
+		that.setData({
+			focusRadio: true,
+		});
+	},500); */
+	
   },
-  // 点击下拉显示框
-  selectTap() {
+  bindShowMsg() {
 	  this.setData({
-		selectShow: !this.data.selectShow
+		  select:!this.data.select
 	  });
   },
-  // 点击下拉列表
-  optionTap(e) {
-	  
-	  let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
+  mySelect(e) {
+	 var name = e.currentTarget.dataset.name
+	 this.setData({
+		 tihuoWay: "选择问题类型:"+name,
+		 select: false,
+		 selectDataValue:name,
+	 });
+	 //获取指定元素值
+	 /* let query=wx.createSelectorQuery();
+	 query.select("#content").boundingClientRect();
+	 query.exec(function(res){
+		 debugger;
+	 }); */
+  },
+  selectRadio(){
 	  this.setData({
-		index: Index,
-		selectShow: !this.data.selectShow,
-		selectDataValue:e.currentTarget.dataset.item,
+	  	focusRadio: true,
 	  });
   },
-  
   formSubmit: function (e) {
 	
     let { content, answer, 

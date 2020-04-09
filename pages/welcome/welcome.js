@@ -10,24 +10,25 @@ Page({
   },
   onLoad: function () {
 	  var that=this;
-	  wx.getStorage({//获取本地缓存
+	  //异步方法
+	  /* wx.getStorage({//获取本地缓存
 	        key:"userinfo",
 	        success:function(res){
 	          that.setData({
 	            userinfo:res.data
 	          });
 	        },
+	   }); */
+	   //同步方法
+	   var getStorageResult=wx.getStorageSync("userinfo");
+	   this.setData({
+	     userinfo:getStorageResult
 	   });
 
-    if (that.data.userInfo) {
-      this.setData({
-        hasUserInfo: true
-      });
-	  //授权成功后跳转页面
-	  wx.navigateTo({
-	  url: '/pages/index/index',
-	  });
-	  
+    if (this.data.userinfo&&this.objectValueNotNone(this.data.userinfo)) {
+		  this.setData({
+			hasUserInfo: true
+		  });
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -49,7 +50,23 @@ Page({
         }
       })
     }
+	
+	if(this.data.hasUserInfo){
+		//授权成功后跳转页面
+		wx.redirectTo({
+		url: '/pages/index/index',
+		});
+	}
   },
+  // 判断对象中key对应value是否为空
+    objectValueNotNone: function (obj) {
+      for (var objKey in obj) {
+        if (!obj[objKey]) {
+          return false;
+        }
+      }
+      return true;
+    },
   //按钮的点击事件
   bindGetUserInfo: function (res) {
   	let info = res;
@@ -81,7 +98,7 @@ Page({
   					  })
   					  //授权成功后跳转页面
 					  if(!!res.data.id){
-						  wx.navigateTo({
+						  wx.redirectTo({
 						  url: '/pages/index/index',
 						  });
 					  }

@@ -1,0 +1,10 @@
+ /* 二维码图片 */
+.code-img{
+	width: 220rpx;
+	height: 220rpx;
+	margin: 60rpx 0 60rpx 190rpx;
+}
+				
+.next-btn{
+    margin: 60rpx 0 60rpx 0;
+} 

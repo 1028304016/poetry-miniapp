@@ -39,7 +39,7 @@ Page({
   	/* wx.navigateTo({
   	  url: '/pages/addpage/add'
   	}) */
-  	wx.redirectTo({
+  	wx.navigateTo({
   		url: '/pages/addpage/add'
   	})
   },
